@@ -1,0 +1,22 @@
+signal-program : program ;
+program : 'PROCEDURE' procedure-identifier parameters-list ';' block ';' ;
+block : declarations 'BEGIN' statements-list 'END' ;
+declarations : procedure-declarations ;
+procedure-declarations : procedure procedure-declarations
+                       | ;
+procedure : 'PROCEDURE' procedure-identifier parameters-list ';' ;
+parameters-list : '(' variable-identifier identifiers-list ')'
+                | ;
+identifiers-list : ',' variable-identifier identifiers-list
+                 | ;
+statements-list : statement statements-list
+                | ;
+statement : procedure-identifier actual-arguments ';'
+          | 'RETURN' ';' ;
+actual-arguments : '(' UNSIGNED-INTEGER actual-arguments-list ')'
+                 | ;
+actual-arguments-list : ',' UNSIGNED-INTEGER actual-arguments-list
+                      | ;
+variable-identifier : IDENTIFIER ;
+procedure-identifier : IDENTIFIER ;
+
