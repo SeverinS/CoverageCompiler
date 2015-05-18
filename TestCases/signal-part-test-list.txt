@@ -1,0 +1,2 @@
+TestCases/signal-part/test.sig
+TestCases/signal-part/test2.sig
